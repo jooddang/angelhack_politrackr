@@ -26,7 +26,7 @@ module.exports = {
   	peopleOfChoiceTwo: 'integer',
   	result: 'integer',
   	like: 'integer',
-  	photo: 'string'
+  	photoPath: 'string'
     
   }
 
