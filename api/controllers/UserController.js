@@ -41,11 +41,62 @@ module.exports = {
 	}
 
 	, read: function(req, res) {
+		User.find().exec(function (err, users) {	
+	  		console.log('read users = ', users);
+	  		res.json(users);
+	  	});
+	}
 
+	, find: function(req, res) {
+		if (req.param('account')) {
+			User.findOneByAccount(req.param('account')).done(function (err, user) {
+				if (err) {
+					res.json(err);
+				} else {
+					res.json(user);
+				}
+			});
+		}
 	}
 
 	, update: function(req, res) {
-		
+		var updated = {};
+		if (req.param('password')) {
+			updated['password'] = req.param('password');
+		}
+		if (req.param('firstName')) {
+			updated['firstName'] = req.param('firstName');
+		}
+		if (req.param('lastName')) {
+			updated['lastName'] = req.param('lastName');
+		}
+		if (req.param('score')) {
+			updated['score'] = req.param('score');
+		}
+		if (req.param('cash')) {
+			updated['cash'] = req.param('cash');
+		}
+		if (req.param('age')) {
+			updated['age'] = req.param('age');
+		}
+		if (req.param('region')) {
+			updated['region'] = req.param('region');
+		}
+		if (req.param('gender')) {
+			updated['gender'] = req.param('gender');
+		}
+		User.update ({
+			account: req.param('account')
+		}
+		, updated
+		, function (err, users) {
+			if (err) {
+				res.json(err);
+				return;
+			} else {
+				res.json(users);
+			}
+		});
 	}
 
 	, delete: function(req, res) {
