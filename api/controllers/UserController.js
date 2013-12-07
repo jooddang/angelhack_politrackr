@@ -18,13 +18,45 @@
 module.exports = {
     
   
+	create: function(req, res) {
+		User.create({
+	  		account: req.param('account')
+	  		, password: req.param('password')
+	  		, firstName: req.param('firstName')
+			, lastName: req.param('lastName')
+			, score: ''
+			, cash: 1000
+			, age: req.param('age')
+			, region: req.param('region')
+			, gender: req.param('gender')
+	  	}).done(function(err, user) {
+	  		if (err) {
+	  			res.json(err);
+	  			return console.log(err);
+	  		} else {
+	  			console.log('user created: ', user);
+	  			res.json(user);
+	  		}
+	  	});
+	}
 
+	, read: function(req, res) {
+
+	}
+
+	, update: function(req, res) {
+		
+	}
+
+	, delete: function(req, res) {
+		
+	}
 
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to UserController)
    */
-  _config: {}
+  // _config: {}
 
   
 };
