@@ -15,6 +15,8 @@ module.exports = {
   	*/
 	account: 'string',
 	password: 'string',
+	firstName: 'string',
+	lastName: 'string',
 	score: 'string',
 	cash: 'float',
 	region: 'string',
