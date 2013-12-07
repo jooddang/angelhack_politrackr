@@ -13,7 +13,13 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
-    
+	account: 'string',
+	password: 'string',
+	score: 'string',
+	cash: 'float',
+	region: 'string',
+	gender: 'string',
+	age: 'integer'    
   }
 
 };

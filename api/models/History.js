@@ -13,7 +13,11 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
-    
+	issueId: 'integer',
+	account: 'string',
+	amount: 'float',
+	choice: 'integer',
+	result: 'integer'
   }
 
 };

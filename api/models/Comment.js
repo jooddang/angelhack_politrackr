@@ -13,7 +13,11 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
-    
+    issueId: 'integer',
+    owner: 'string',
+    text: 'string',
+    like: 'integer',
+    dislike: 'integer'
   }
 
 };

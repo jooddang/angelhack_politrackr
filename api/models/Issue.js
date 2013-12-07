@@ -13,6 +13,20 @@ module.exports = {
   	/* e.g.
   	nickname: 'string'
   	*/
+  	title: 'string',
+  	amount: 'float',
+  	deadline: 'datetime',
+  	status: 'integer',
+  	owner: 'string',
+  	choiceOne: 'string',
+  	choiceTwo: 'string',
+  	amountOfChoiceOne: 'float',
+  	amountOfChoiceTwo: 'float',
+  	peopleOfChoiceOne: 'integer',
+  	peopleOfChoiceTwo: 'integer',
+  	result: 'integer',
+  	like: 'integer',
+  	photo: 'string'
     
   }
 
