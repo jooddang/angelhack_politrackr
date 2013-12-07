@@ -14,7 +14,6 @@ module.exports = {
   	nickname: 'string'
   	*/
   	title: 'string',
-  	amount: 'float',
   	deadline: 'datetime',
   	status: 'integer',
   	owner: 'string',
