@@ -7,6 +7,7 @@
 	
 	<div class="row question">
 		<p class="lead"><%= latest.title %></p>
+		<div id="graph" style="background-color:#ffffff">
 		<p>
 			<a href="#" id="btnChoice1" class="btn btn-primary col-xs-5" role="button"><%= latest.choiceOne %></a> 
 			<div class="col-xs-2 text-center"><h4>VS</h4></div>
@@ -69,3 +70,29 @@
 	var issueId = <%= latest.id %>;
 </script>
 <script type="text/javascript" src="/linker/js/bet.js"></script>
+<script src="http://d3js.org/d3.v3.js"></script>
+
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>
