@@ -50,6 +50,12 @@ module.exports = {
 		});
 	}
 
+	, getLatest: function(req, res) {
+		Issue.find().sort('id DESC').limit(1).exec(function (err, latest) {
+			res.json(latest, 200);
+		});
+	}
+
 	, update: function(req, res) {
 
 		var updated = {};
