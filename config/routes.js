@@ -61,7 +61,9 @@ module.exports.routes = {
   }
 
   , '/proposal': {
-    view: 'proposal/list_proposal'
+    //view: 'proposal/list_proposals'
+    controller: "IssueController",
+    action: "read"
   }
   , '/proposal/write': {
     view: 'proposal/write_proposal'

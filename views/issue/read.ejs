@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="page-header"> 
+		<div class="text-center">
+			<h3>proposals</h3>
+		</div>
+	</div>
+	<div class="row proposals">
+		<table id="proposalTable" class="table">
+	        <tbody>
+	        	<thead>
+	        		<tr></tr>
+	        		<tr></tr>
+	        		<tr class="col-xs-1"></tr>
+	        	</thead>
+    		<% _.each(issues, function (issue) { %>
+				<tr>
+					<td class="hidden id">asdfsadfsa</td>
+					<td>
+					    <div><%= issue.title %></div>
+					    <div><span class="col-xs-2"><%= issue.owner %></span>
+					    <span class="col-xs-1 text-center">/</span>
+					    <span class="col-xs-2"><%= issue.deadline %></span></div></td>
+					<td><span class="glyphicon glyphicon-thumbs-up"></span>10</td>
+				</tr>
+    		<% }) %>
+	        </tbody>
+    	</table>	
+	</div>
+
+</div>
+<%- partial('../partials/footer') %>
+

@@ -104,5 +104,34 @@ $(document).ready(function() {
 		});
 	});
 
+	$("#btnChoice1").click(function() {
+		$.ajax("transaction/create", {
+			data : {
+				issueId : issueId,
+				account : sessionStorage.account,
+				amount : 100,
+				choice : 1,
+				result : ""
+			}
+		}).done(function(res) {
+			alert("choice1");
+		});
+	});
+
+	$("#btnChoice2").click(function() {
+		$.ajax("transaction/create", {
+			data : {
+				issueId : issueId,
+				account : sessionStorage.account,
+				amount : 100,
+				choice : 2,
+				result : ""
+			}
+		}).done(function(res) {
+			alert("choice2");
+		});
+	});
+
+
 });
 

@@ -41,7 +41,8 @@ module.exports = {
 
 	, read: function(req, res) {
 		Issue.find().exec(function(err, issues) {
-			res.json(issues, 200);
+			//res.json(issues, 200);
+			res.view({issues : issues});
 		});
 	}
 
