@@ -26,6 +26,7 @@ module.exports = {
 			, owner: req.param('owner')
 			, choiceOne: req.param('choiceOne')
 			, choiceTwo: req.param('choiceTwo')
+			, result: 0
 	  	}).done(function(err, user) {
 	  		if (err) {
 	  			return console.log(err);
@@ -37,11 +38,57 @@ module.exports = {
 	}
 
 	, read: function(req, res) {
+		Issue.find().exec(function(err, issues) {
+			res.json(issues);
+		});
+	}
 
+	, find: function(req, res) {
+		Issue.findOneById(req.param('id')).done(function(err, issues) {
+			res.json(issues);
+		});
 	}
 
 	, update: function(req, res) {
-		
+
+		var updated = {};
+		if (req.param('amount')) {
+			updated['amount'] = req.param('amount');
+		}
+		if (req.param('status')) {
+			updated['status'] = req.param('status');
+		}
+		if (req.param('amountOfChoiceOne')) {
+			updated['amountOfChoiceOne'] = req.param('amountOfChoiceOne');
+		}
+		if (req.param('amountOfChoiceTwo')) {
+			updated['amountOfChoiceTwo'] = req.param('amountOfChoiceTwo');
+		}
+		if (req.param('peopleOfChoiceOne')) {
+			updated['peopleOfChoiceOne'] = req.param('peopleOfChoiceOne');
+		}
+		if (req.param('peopleOfChoiceTwo')) {
+			updated['peopleOfChoiceTwo'] = req.param('peopleOfChoiceTwo');
+		}
+		if (req.param('result')) {
+			updated['result'] = req.param('result');
+		}
+		if (req.param('like')) {
+			updated['like'] = req.param('like');
+		}
+
+		Issue.update ({
+			id: req.param('id')
+		}
+		, updated
+		, function (err, issue) {
+			if (err) {
+				res.json(err);
+				return;
+			} else {
+				res.json(issue);
+			}
+		});
 	}
 
 	, delete: function(req, res) {
