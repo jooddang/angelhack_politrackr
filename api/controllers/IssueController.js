@@ -84,11 +84,15 @@ module.exports = {
 
 		var updated = {};
 		console.log(req);
-		if (req.param('amount')) {
-			updated['amount'] = req.param('amount');
-		}
+
 		if (req.param('status')) {
 			updated['status'] = req.param('status');
+		}
+		if (req.param('choiceOne')) {
+			updated['choiceOne'] = req.param('choiceOne');
+		}
+		if (req.param('choiceTwo')) {
+			updated['choiceTwo'] = req.param('choiceTwo');
 		}
 		if (req.param('amountOfChoiceOne')) {
 			updated['amountOfChoiceOne'] = req.param('amountOfChoiceOne');
@@ -108,6 +112,9 @@ module.exports = {
 		if (req.param('like')) {
 			updated['like'] = req.param('like');
 		}
+		if (req.param('owner')) {
+			updated['owner'] = req.param('owner');
+		}
 		console.log('updated = ', updated);
 
 		Issue.update ({
@@ -125,7 +132,14 @@ module.exports = {
 	}
 
 	, delete: function(req, res) {
-		
+		Issue.destroy({where: {id: {'>=' : 1}}}).done(function(err, issues) {
+			if (err) {
+				res.json(err);
+				return;
+			} else {
+				res.json(issues, 200);
+			}
+		});		
 	}
 
   /**
