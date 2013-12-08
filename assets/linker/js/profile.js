@@ -4,7 +4,7 @@ $(document).ready(function() {
 	}
 	$.get('/transaction/find/'
 		, {
-			account : 'asdf@asdf.com'
+			account : sessionStorage.account
 		}, function (data) {
 			data.forEach(function (entry) {
 				console.log('each data = ', entry);
