@@ -27,12 +27,13 @@ module.exports = {
 			, choiceOne: req.param('choiceOne')
 			, choiceTwo: req.param('choiceTwo')
 			, result: 0
-	  	}).done(function(err, user) {
+	  	}).done(function(err, issue) {
 	  		if (err) {
+	  			res.json(err);
 	  			return console.log(err);
 	  		} else {
-	  			console.log('user created: ', user);
-	  			res.json(user);
+	  			console.log('issue created: ', issue);
+	  			res.json(issue);
 	  		}
 	  	});
 	}
@@ -76,6 +77,7 @@ module.exports = {
 		if (req.param('like')) {
 			updated['like'] = req.param('like');
 		}
+		console.log('updated = ', updated);
 
 		Issue.update ({
 			id: req.param('id')

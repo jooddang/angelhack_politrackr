@@ -17,8 +17,67 @@
 
 module.exports = {
     
-  
+	create: function(req, res) {
+		Comment.create({
+			issueId: req.param('issueId')
+	  		, ownerId: req.param('ownerId')
+	  		, text: req.param('text')
+			, like: 0
+			, dislike: 0
+	  	}).done(function(err, comment) {
+	  		if (err) {
+	  			return console.log(err);
+	  		} else {
+	  			console.log('comment created: ', comment);
+	  			res.json(comment);
+	  		}
+	  	});
+	}
 
+	, read: function(req, res) {
+		Comment.find().exec(function(err, comments) {
+			res.json(comments);
+		});
+	}
+
+	, find: function(req, res) {
+		Comment.findOneById(req.param('id')).done(function(err, comments) {
+			res.json(comments);
+		});
+	}
+
+	, update: function(req, res) {
+
+		var updated = {};
+		if (req.param('text')) {
+			updated['text'] = req.param('text');
+		}
+		if (req.param('like')) {
+			updated['like'] = req.param('like');
+		}
+		if (req.param('dislike')) {
+			updated['dislike'] = req.param('dislike');
+		}
+		console.log('updated = ', updated);
+
+		Comment.update ({
+			id: req.param('id')
+		}
+		, updated
+		, function (err, comment) {
+			if (err) {
+				res.json(err);
+				return console.log(err);
+			} else {
+				console.log(comment);
+				res.json(comment);
+			}
+		});
+	}
+
+	, delete: function(req, res) {
+		
+	}
 
   /**
    * Overrides for the settings in `config/controllers.js`
