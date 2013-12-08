@@ -200,7 +200,8 @@ var svg = d3.select("#graph").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("linker/testgraph/data"+(issueId%10)+".tsv", function(error, data) {
+//d3.tsv("linker/testgraph/data"+(issueId%10)+".tsv", function(error, data) {
+d3.tsv("linker/testgraph/data0.tsv", function(error, data) {
   data.forEach(function(d) {
     d.date = parseDate(d.date);
     d.close = +d.close;

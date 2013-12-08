@@ -21,14 +21,14 @@ module.exports = {
 		Issue.create({
 			title: req.param('title')
 	  		, deadline: req.param('deadline')
-			, status: 0
+			, status: req.param('status')
 			, owner: req.param('owner')
 			, choiceOne: req.param('choiceOne')
 			, choiceTwo: req.param('choiceTwo')
-			, amountOfChoiceOne: 1
-			, amountOfChoiceTwo: 1
-			, result: 0
-			, like : 0
+			, amountOfChoiceOne: req.param('amountOfChoiceOne')
+			, amountOfChoiceTwo: req.param('amountOfChoiceTwo')
+			, result: req.param("result")
+			, like : req.param("like")
 	  	}).done(function(err, issue) {
 	  		if (err) {
 	  			res.json(err);
@@ -60,7 +60,8 @@ module.exports = {
 
 	, getLatest: function(req, res) {
 		console.log("getLatest");
-		Issue.find().sort('id DESC').limit(1).exec(function (err, latest1) {
+		// Issue.find().sort('id DESC').limit(1).exec(function (err, latest1) {
+		Issue.findById(16).exec(function (err, latest1) {
 			//res.json(latest, 200);
 			console.log('what da = ', latest1);
 			res.view({latest : latest1[0]});
@@ -85,6 +86,9 @@ module.exports = {
 		var updated = {};
 		console.log(req);
 
+		if (req.param('title')) {
+			updated['title'] = req.param('title');
+		}
 		if (req.param('status')) {
 			updated['status'] = req.param('status');
 		}
@@ -132,7 +136,7 @@ module.exports = {
 	}
 
 	, delete: function(req, res) {
-		Issue.destroy({where: {id: {'>=' : 1}}}).done(function(err, issues) {
+		Issue.destroy({id: req.param('id')}).done(function(err, issues) {
 			if (err) {
 				res.json(err);
 				return;
