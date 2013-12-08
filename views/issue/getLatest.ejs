@@ -14,10 +14,10 @@
 		</p>
 	</div>
 	<div class="progress">
-	  <div class="progress-bar progress-bar-warning" style="width: <%= latest.amountOfChoiceOne%>%">
+	  <div class="progress-bar progress-bar-warning" style="width: <%= latest.amountOfChoiceOne / (latest.amountOfChoiceOne + latest.amountOfChoiceTwo)* 100%>%">
 	    <span><%= latest.amountOfChoiceOne %></span>
 	  </div>
-	  <div class="progress-bar progress-bar-danger" style="width: <%= latest.amountOfChoiceTwo%>%">
+	  <div class="progress-bar progress-bar-danger" style="width: <%= latest.amountOfChoiceTwo / (latest.amountOfChoiceOne + latest.amountOfChoiceTwo)* 100%>%">
 	    <span><%= latest.amountOfChoiceTwo %></span>
 	  </div>
 	</div>
@@ -33,7 +33,7 @@
 
 	</div>
 	<div class="row comments">
-		<table class="table">
+		<table id="commentsTable" class="table">
 	        <tbody>
 	        	<thead>
 	        		<tr></tr>
