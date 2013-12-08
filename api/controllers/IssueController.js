@@ -25,6 +25,9 @@ module.exports = {
 			, owner: req.param('owner')
 			, choiceOne: req.param('choiceOne')
 			, choiceTwo: req.param('choiceTwo')
+			, amountOfChoiceOne: 1
+			, amountOfChoiceTwo: 1
+			, 
 			, result: 0
 	  	}).done(function(err, issue) {
 	  		if (err) {
