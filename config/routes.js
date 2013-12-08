@@ -40,6 +40,10 @@ module.exports.routes = {
     view: 'issue_detail'
   }
 
+  , '/test': {
+    view: 'home/test_issue'
+    , controller: 'IssueController'
+  }
 
   /*
   // But what if you want your home page to display

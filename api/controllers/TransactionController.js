@@ -1,5 +1,5 @@
 /**
- * CommentController
+ * HistoryController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -18,59 +18,53 @@
 module.exports = {
     
 	create: function(req, res) {
-		Comment.create({
+		Transaction.create({
 			issueId: req.param('issueId')
-	  		, ownerId: req.param('ownerId')
-	  		, text: req.param('text')
-			, like: 0
-			, dislike: 0
-	  	}).done(function(err, comment) {
+	  		, account: req.param('account')
+	  		, amount: req.param('amount')
+			, choice: req.param('choice')
+			, result: req.param('result')
+	  	}).done(function(err, transaction) {
 	  		if (err) {
 	  			return console.log(err);
 	  		} else {
-	  			console.log('comment created: ', comment);
-	  			res.json(comment);
+	  			console.log('transaction created: ', transaction);
+	  			res.json(transaction);
 	  		}
 	  	});
 	}
 
 	, read: function(req, res) {
-		Comment.find().exec(function(err, comments) {
-			res.json(comments);
+		Transaction.find().exec(function(err, transaction) {
+			res.json(transaction);
 		});
 	}
 
 	, find: function(req, res) {
-		Comment.findOneById(req.param('id')).done(function(err, comments) {
-			res.json(comments);
+		Transaction.findOneById(req.param('id')).done(function(err, transaction) {
+			res.json(transaction);
 		});
 	}
 
 	, update: function(req, res) {
 
 		var updated = {};
-		if (req.param('text')) {
-			updated['text'] = req.param('text');
-		}
-		if (req.param('like')) {
-			updated['like'] = req.param('like');
-		}
-		if (req.param('dislike')) {
-			updated['dislike'] = req.param('dislike');
+		if (req.param('result')) {
+			updated['result'] = req.param('result');
 		}
 		console.log('updated = ', updated);
 
-		Comment.update ({
+		Transaction.update ({
 			id: req.param('id')
 		}
 		, updated
-		, function (err, comment) {
+		, function (err, transaction) {
 			if (err) {
 				res.json(err);
 				return console.log(err);
 			} else {
-				console.log(comment);
-				res.json(comment);
+				console.log(transaction);
+				res.json(transaction);
 			}
 		});
 	}
@@ -79,9 +73,10 @@ module.exports = {
 		
 	}
 
+
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to CommentController)
+   * (specific to HistoryController)
    */
   // _config: {}
 
