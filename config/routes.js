@@ -37,7 +37,10 @@ module.exports.routes = {
   // }
   '/': {
     //view: 'user/signin'
-    view: 'issue_detail'
+    // view: 'issue_detail',
+    controller: "IssueController",
+    action: "getLatest"
+
   }
 
   , '/test': {

@@ -52,8 +52,11 @@ module.exports = {
 	}
 
 	, getLatest: function(req, res) {
-		Issue.find().sort('id DESC').limit(1).exec(function (err, latest) {
-			res.json(latest, 200);
+		console.log("getLatest");
+		Issue.find().sort('id DESC').limit(1).exec(function (err, latest1) {
+			//res.json(latest, 200);
+			console.log('what da = ', latest1);
+			res.view({latest : latest1[0]});
 		});
 	}
 

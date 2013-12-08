@@ -6,19 +6,19 @@
 	</div>
 	
 	<div class="row question">
-		<p class="lead">what do you think about it?</p>
+		<p class="lead"><%= latest.title %></p>
 		<p>
-			<a href="#" class="btn btn-primary col-xs-5" role="button">YES</a> 
+			<a href="#" class="btn btn-primary col-xs-5" role="button"><%= latest.choiceOne %></a> 
 			<div class="col-xs-2 text-center"><h4>VS</h4></div>
-			<a href="#" class="btn btn-default col-xs-5" role="button">NO</a>
+			<a href="#" class="btn btn-default col-xs-5" role="button"><%= latest.choiceTwo %></a>
 		</p>
 	</div>
 	<div class="progress">
-	  <div class="progress-bar progress-bar-warning" style="width: 40%">
-	    <span>40000</span>
+	  <div class="progress-bar progress-bar-warning" style="width: <%= latest.amountOfChoiceOne%>%">
+	    <span><%= latest.amountOfChoiceOne %></span>
 	  </div>
-	  <div class="progress-bar progress-bar-danger" style="width: 60%">
-	    <span>60000</span>
+	  <div class="progress-bar progress-bar-danger" style="width: <%= latest.amountOfChoiceTwo%>%">
+	    <span><%= latest.amountOfChoiceTwo %></span>
 	  </div>
 	</div>
 	<div class="row comments-form">
@@ -53,6 +53,5 @@
     	</table>	
 	</div>
 
-
 </div>
-<%- partial('partials/footer') %>
+<%- partial('../partials/footer') %>
