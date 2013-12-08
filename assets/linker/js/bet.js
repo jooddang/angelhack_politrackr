@@ -5,17 +5,27 @@ $(document).ready(function() {
 		console.log(latest);
 	}
 
-	$.ajax("/comment/get", {
+	$.ajax("/comment/findByIssue", {
+		data : {issueId : issueId}
 	}).done(function(res) {
-		//console.log(res);
-		//alert("sign up success");
-		//return false;
-		window.location.replace("/signin");
+		alert(res);
 	}).always(function(res) {
 		//alert("sign up success");
 		//window.location.replace("/signin");
 		//window.location.href = "/signin";
 		//return false;
+	});
+
+	$("#btnSubmitComment").click(function() {
+		$.ajax("comment/create", {
+			data : {
+				issueId : issueId,
+				ownerId : sessionStorage.account,
+				text : $("#inputComment").val()
+			}
+		}).done(function (res) {
+			alert("comment success");
+		});
 	});
 
 });
