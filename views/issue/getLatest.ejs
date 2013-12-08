@@ -1,26 +1,34 @@
 <div class="container">
 	<div class="page-header"> 
 		<div class="text-center">
-			<h3>Bet!</h3>
+			<h2>Bet!</h2>
 		</div>
 	</div>
 	
 	<div class="row question">
-		<p class="lead"><%= latest.title %></p>
-		<div id="graph" style="background-color:#ffffff">
-		<p>
-			<a href="#" id="btnChoice1" class="btn btn-primary col-xs-5" role="button"><%= latest.choiceOne %></a> 
-			<div class="col-xs-2 text-center"><h4>VS</h4></div>
-			<a href="#" id="btnChoice2" class="btn btn-default col-xs-5" role="button"><%= latest.choiceTwo %></a>
-		</p>
+		<p class="lead"><h3><%= latest.title %></h3></p>
 	</div>
-	<div class="progress">
+	<div class="row">
+		<div id="graph" style="background-color:#ffffff;"></div>
+	</div>
+	<div class="progress row">
 	  <div class="progress-bar progress-bar-warning" style="width: <%= latest.amountOfChoiceOne / (latest.amountOfChoiceOne + latest.amountOfChoiceTwo)* 100%>%">
 	    <span><%= latest.amountOfChoiceOne %></span>
 	  </div>
 	  <div class="progress-bar progress-bar-danger" style="width: <%= latest.amountOfChoiceTwo / (latest.amountOfChoiceOne + latest.amountOfChoiceTwo)* 100%>%">
 	    <span><%= latest.amountOfChoiceTwo %></span>
 	  </div>
+	</div>
+	<div class="row prob">
+		<h3 id="outcome">Based on politrackr's model, we predict <%= latest.result%></h3>
+	</div>
+
+	<div>
+		<p>
+			<a href="#" id="btnChoice1" class="btn btn-primary col-xs-5" role="button"><%= latest.choiceOne %></a> 
+			<div class="col-xs-2 text-center"><h4 style="color:#000000;">VS</h4></div>
+			<a href="#" id="btnChoice2" class="btn btn-default col-xs-5" role="button"><%= latest.choiceTwo %></a>
+		</p>
 	</div>
 
 	<div class="btn-group btn-group-justified nav_row">
@@ -68,10 +76,16 @@
 <%- partial('../partials/footer') %>
 <script type="text/javascript" >
 	var issueId = <%= latest.id %>;
+	var choice = ["<%= latest.choiceOne %>", "<%= latest.choiceTwo %>"];
+	var probs = [18,93.2,60.8,25.4,35.8,37.5,20.5,9.5,39.1];
+	var outcomes = [0,1,0,0,0,0,0,0,1,0];
+	$(document).ready(function() {
+		$("#outcome").text("Based on politrackr's model, we predict " + choice[outcomes[issueId%10]]);
+	});
 </script>
 <script type="text/javascript" src="/linker/js/bet.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
-
+	
 <style>
 
 body {
