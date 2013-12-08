@@ -11,7 +11,8 @@ $(document).ready(function() {
 			//console.log(res);
 			//alert("sign up success");
 			//return false;
-			sessionStorage.account = inputObj.account;
+			sessionStorage.account = res.account;
+			sessionStorage.userId = res.id;
 			window.location.replace("/");
 		}).always(function(res) {
 			//alert("sign up success");

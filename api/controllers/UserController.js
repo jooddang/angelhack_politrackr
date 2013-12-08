@@ -35,7 +35,7 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('user created: ', user);
-	  			//res.json(user, 200);
+	  			res.json(user, 200);
 	  			res.redirect('/signin');
 	  		}
 	  	});

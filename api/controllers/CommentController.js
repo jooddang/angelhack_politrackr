@@ -21,6 +21,7 @@ module.exports = {
 		Comment.create({
 			issueId: req.param('issueId')
 	  		, ownerId: req.param('ownerId')
+	  		, account: req.param('account')
 	  		, text: req.param('text')
 			, like: 0
 			, dislike: 0
