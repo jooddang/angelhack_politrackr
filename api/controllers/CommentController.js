@@ -42,13 +42,31 @@ module.exports = {
 
 	, find: function(req, res) {
 		Comment.findOneById(req.param('id')).done(function(err, comments) {
-			res.json(comments, 200);
+			if (err) {
+	  			return console.log(err);
+	  		} else {
+				res.json(comments, 200);
+			}
+		});
+	}
+
+	, findByAccount: function(req, res) {
+		Comment.findByAccount(req.param('account')).done(function(err, comments) {
+			if (err) {
+	  			return console.log(err);
+	  		} else {
+	  			res.json(comments, 200);
+	  		}
 		});
 	}
 
 	, findByIssue: function(req, res) {
 		Comment.findByIssueId(req.param('issueId')).done(function(err, issues) {
-			res.json(issues, 200);
+			if (err) {
+	  			return console.log(err);
+	  		} else {
+				res.json(issues, 200);
+			}
 		});
 	}
 

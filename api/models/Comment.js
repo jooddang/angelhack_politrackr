@@ -15,6 +15,7 @@ module.exports = {
   	*/
     issueId: 'integer',
     ownerId: 'integer',
+    account: 'string',
     text: 'string',
     like: 'integer',
     dislike: 'integer'
