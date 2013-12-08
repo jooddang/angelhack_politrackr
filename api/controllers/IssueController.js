@@ -28,6 +28,7 @@ module.exports = {
 			, amountOfChoiceOne: 1
 			, amountOfChoiceTwo: 1
 			, result: 0
+			, like : 0
 	  	}).done(function(err, issue) {
 	  		if (err) {
 	  			res.json(err);
@@ -82,6 +83,7 @@ module.exports = {
 	, update: function(req, res) {
 
 		var updated = {};
+		console.log(req);
 		if (req.param('amount')) {
 			updated['amount'] = req.param('amount');
 		}

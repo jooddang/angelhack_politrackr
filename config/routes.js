@@ -68,6 +68,9 @@ module.exports.routes = {
   , '/proposal/write': {
     view: 'proposal/write_proposal'
   }
+  , '/prediction': {
+    view: 'prediction'
+  }
 
   , '/issue/detail': {
     controller: 'IssueController',

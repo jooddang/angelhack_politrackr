@@ -1,7 +1,8 @@
 <div class="container">
 	<div class="page-header"> 
 		<div class="text-center">
-			<h3>proposals</h3>
+			<h3>proposals<span class="pull-right"><button class="btn btn-default">write</button></span></h3>
+
 		</div>
 	</div>
 	<div class="row proposals">
@@ -14,13 +15,13 @@
 	        	</thead>
     		<% _.each(issues, function (issue) { %>
 				<tr>
-					<td class="hidden id">asdfsadfsa</td>
+					<td class="hidden id"><%= issue.id %></td>
 					<td>
 					    <div><%= issue.title %></div>
 					    <div><span class="col-xs-2"><%= issue.owner %></span>
 					    <span class="col-xs-1 text-center">/</span>
 					    <span class="col-xs-2"><%= issue.deadline %></span></div></td>
-					<td><span class="glyphicon glyphicon-thumbs-up"></span>10</td>
+					<td><span class="issueLike glyphicon glyphicon-thumbs-up"></span><span id="issueLike<%= issue.id%>"><%= issue.like %></span></td>
 				</tr>
     		<% }) %>
 	        </tbody>
@@ -29,4 +30,5 @@
 
 </div>
 <%- partial('../partials/footer') %>
+<script type="text/javascript" src="/linker/js/proposal.js"></script>
 
