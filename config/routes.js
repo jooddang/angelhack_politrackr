@@ -44,6 +44,14 @@ module.exports.routes = {
     view: 'home/test_issue'
     , controller: 'IssueController'
   }
+  , '/signup': {
+    view: 'user/signup',
+    controller: 'UserController'
+  }
+  , '/signin': {
+    view: 'user/signin',
+    controller: 'UserController'
+  }
 
   , '/profile': {
     view: 'profile'

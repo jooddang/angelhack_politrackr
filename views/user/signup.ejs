@@ -2,28 +2,28 @@
 
   <form class="form-signup" role="form">
     <h2 class="form-signup-heading">Please sign up</h2>
-    <input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
-    <input type="password" class="form-control" placeholder="Password" required="">
-    <input type="text" class="form-control" placeholder="First name" required="" autofocus="">
-    <input type="text" class="form-control" placeholder="Last name" required="" autofocus="">
-    <input type="text" class="form-control" placeholder="state, city" required="" autofocus="">
-    <input type="text" class="form-control" placeholder="age" required="" autofocus="">
+    <input id="email" name="account" type="text" class="form-control" placeholder="Email address" required="" autofocus="">
+    <input id="password" name="password" type="password" class="form-control" placeholder="Password" required="">
+    <input id="fname" name="firstName" type="text" class="form-control" placeholder="First name" required="" autofocus="">
+    <input id="lname" name="lastName" type="text" class="form-control" placeholder="Last name" required="" autofocus="">
+    <input id="region" name="region" type="text" class="form-control" placeholder="state, city" required="" autofocus="">
+    <input id="age" name="age" type="text" class="form-control" placeholder="age" required="" autofocus="">
     <div class="control-group">
 		<label class="control-label bolder blue">Gender</label>
 		<div class="radio">
 			<label>
-				<input name="form-field-radio" type="radio" class="">
+				<input name="gender" type="radio" value="M">
 				<span class="lbl">Male</span>
 			</label>
 		</div>
 		<div class="radio">
 			<label>
-				<input name="form-field-radio" type="radio" class="">
+				<input name="gender" type="radio" value="F">
 				<span class="lbl">Female</span>
 			</label>
 		</div>
 	</div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <button id="btnSignup" class="btn btn-lg btn-primary btn-block">Sign up</button>
   </form>
 
 </div>
