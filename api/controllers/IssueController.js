@@ -33,20 +33,20 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('issue created: ', issue);
-	  			res.json(issue);
+	  			res.json(issue, 200);
 	  		}
 	  	});
 	}
 
 	, read: function(req, res) {
 		Issue.find().exec(function(err, issues) {
-			res.json(issues);
+			res.json(issues, 200);
 		});
 	}
 
 	, find: function(req, res) {
 		Issue.findOneById(req.param('id')).done(function(err, issues) {
-			res.json(issues);
+			res.json(issues, 200);
 		});
 	}
 
@@ -88,7 +88,7 @@ module.exports = {
 				res.json(err);
 				return;
 			} else {
-				res.json(issue);
+				res.json(issue, 200);
 			}
 		});
 	}

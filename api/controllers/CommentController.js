@@ -29,20 +29,20 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('comment created: ', comment);
-	  			res.json(comment);
+	  			res.json(comment, 200);
 	  		}
 	  	});
 	}
 
 	, read: function(req, res) {
 		Comment.find().exec(function(err, comments) {
-			res.json(comments);
+			res.json(comments, 200);
 		});
 	}
 
 	, find: function(req, res) {
 		Comment.findOneById(req.param('id')).done(function(err, comments) {
-			res.json(comments);
+			res.json(comments, 200);
 		});
 	}
 
@@ -70,7 +70,7 @@ module.exports = {
 				return console.log(err);
 			} else {
 				console.log(comment);
-				res.json(comment);
+				res.json(comment, 200);
 			}
 		});
 	}

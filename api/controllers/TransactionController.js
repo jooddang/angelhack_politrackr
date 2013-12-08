@@ -29,20 +29,30 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('transaction created: ', transaction);
-	  			res.json(transaction);
+	  			res.json(transaction, 200);
 	  		}
 	  	});
 	}
 
 	, read: function(req, res) {
 		Transaction.find().exec(function(err, transaction) {
-			res.json(transaction);
+			res.json(transaction, 200);
 		});
 	}
 
 	, find: function(req, res) {
-		Transaction.findOneById(req.param('id')).done(function(err, transaction) {
-			res.json(transaction);
+		var condition = {};
+		if (req.param('id')) {
+			condition['id'] = req.param('id');
+		}
+		if (req.param('issueId')) {
+			condition['issueId'] = req.param('issueId');
+		}
+		if (req.param('account')) {
+			condition['account'] = req.param('account');
+		}
+		Transaction.find(condition).done(function(err, transaction) {
+			res.json(transaction, 200);
 		});
 	}
 
@@ -64,7 +74,7 @@ module.exports = {
 				return console.log(err);
 			} else {
 				console.log(transaction);
-				res.json(transaction);
+				res.json(transaction, 200);
 			}
 		});
 	}

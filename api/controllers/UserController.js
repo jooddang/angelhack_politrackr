@@ -35,7 +35,7 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('user created: ', user);
-	  			res.json(user);
+	  			res.json(user, 200);
 	  		}
 	  	});
 	}
@@ -43,7 +43,7 @@ module.exports = {
 	, read: function(req, res) {
 		User.find().exec(function (err, users) {	
 	  		console.log('read users = ', users);
-	  		res.json(users);
+	  		res.json(users, 200);
 	  	});
 	}
 
@@ -53,7 +53,7 @@ module.exports = {
 				if (err) {
 					res.json(err);
 				} else {
-					res.json(user);
+					res.json(user, 200);
 				}
 			});
 		}
@@ -94,7 +94,7 @@ module.exports = {
 				res.json(err);
 				return;
 			} else {
-				res.json(users);
+				res.json(users, 200);
 			}
 		});
 	}
