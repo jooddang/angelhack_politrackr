@@ -35,7 +35,8 @@ module.exports = {
 	  			return console.log(err);
 	  		} else {
 	  			console.log('user created: ', user);
-	  			res.json(user, 200);
+	  			//res.json(user, 200);
+	  			res.redirect('/signin');
 	  		}
 	  	});
 	}
@@ -52,8 +53,10 @@ module.exports = {
 			User.findOneByAccount(req.param('account')).done(function (err, user) {
 				if (err) {
 					res.json(err);
+					console.log(err);
 				} else {
 					res.json(user, 200);
+					console.log("login success");
 				}
 			});
 		}
