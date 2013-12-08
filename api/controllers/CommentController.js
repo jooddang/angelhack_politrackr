@@ -46,6 +46,12 @@ module.exports = {
 		});
 	}
 
+	, findByIssue: function(req, res) {
+		Comment.findByIssueId(req.param('issueId')).done(function(err, issues) {
+			res.json(issues, 200);
+		});
+	}
+
 	, update: function(req, res) {
 
 		var updated = {};
