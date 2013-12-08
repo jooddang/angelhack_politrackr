@@ -48,7 +48,12 @@ module.exports = {
 
 	, find: function(req, res) {
 		Issue.findOneById(req.param('id')).done(function(err, issues) {
-			res.json(issues, 200);
+			if (err) {
+	  			res.json(err);
+	  			return console.log(err);
+	  		} else {
+				res.json(issues, 200);
+			}
 		});
 	}
 
@@ -58,6 +63,19 @@ module.exports = {
 			//res.json(latest, 200);
 			console.log('what da = ', latest1);
 			res.view({latest : latest1[0]});
+		});
+	}
+
+	, detail: function(req, res) {
+		console.log('detail....');
+		Issue.findOneById(req.param('id')).exec(function(err, issues) {
+			if (err) {
+	  			res.json(err);
+	  			return console.log(err);
+	  		} else {
+	  			console.log('issue = ', issues);
+	  			res.view({latest : issues});
+			}
 		});
 	}
 

@@ -29,11 +29,44 @@ $(document).ready(function() {
 		});
 	});
 
+	$.get('/issue/find', {id: issueId + 1}).always( function(data) {
+		// console.log('leng = ', data.responseText.length === 0);
+		if (data.responseText === undefined) {
+			$(document).on('click', '#prev_issue', function() {
+				window.location.href = '/issue/detail?id=' + (issueId + 1);
+			});
+			return false;
+		}
+		if (data.responseText.length === 0) {
+			$('#prev_issue').css({'display':'none'});
+		}
+	});
+
+	$.get('/issue/find', {id: issueId - 1}).always(function(data) {
+		// console.log('leng = ', data.responseText.length === 0);
+		if (data.responseText === undefined) {
+			$(document).on('click', '#next_issue', function() {
+				window.location.href = '/issue/detail?id=' + (issueId - 1);
+			});
+			return false;
+		}
+		if (data.responseText.length === 0) {
+			$('#next_issue').css({'display':'none'});
+		}
+	});
+
+	$(document).on('click', '#list_issue', function() {
+		window.location.replace('/proposal');
+	});
+
 
 	$.ajax("/comment/findByIssue", {
 		data : {issueId : issueId}
 	}).done(function(res) {
 		//alert(res[i].id);
+		if (res === undefined) {
+			return false;
+		}
 		for (var i =0; i < res.length; i++) {
 			var id = res[i].id;
 			$('<tr><td class=\"hidden id\">'+res[i].id+'</td>'+

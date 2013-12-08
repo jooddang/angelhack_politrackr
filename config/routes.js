@@ -69,6 +69,11 @@ module.exports.routes = {
     view: 'proposal/write_proposal'
   }
 
+  , '/issue/detail': {
+    controller: 'IssueController',
+    action: 'detail'
+  }
+
   /*
   // But what if you want your home page to display
   // a signup form located at `views/user/signup.ejs`?

@@ -50,8 +50,12 @@ module.exports = {
 	, findByIssue: function(req, res) {
 		//console.log(req);
 		Comment.findByIssueId(req.param('issueId')).done(function(err, issues) {
-			console.log(issues);
-			res.json(issues, 200);
+			if (err) {
+	  			return console.log(err);
+	  		} else {
+				console.log(issues);
+				res.json(issues, 200);
+			}
 		});
 	}
 

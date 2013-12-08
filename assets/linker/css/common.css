@@ -52,3 +52,15 @@
 .vertical_middle {
 	vertical-align: middle;
 }
+
+.btn-group-justified .nav_row {
+	margin-bottom: 2em;
+}
+
+.btn .nav_row {
+	margin-bottom: 2em;
+}
+
+.comments-form {
+	margin-top: 2em;
+}
