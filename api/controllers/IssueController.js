@@ -20,7 +20,6 @@ module.exports = {
 	create: function(req, res) {
 		Issue.create({
 			title: req.param('title')
-	  		, amount: req.param('amount')
 	  		, deadline: req.param('deadline')
 			, status: 0
 			, owner: req.param('owner')
