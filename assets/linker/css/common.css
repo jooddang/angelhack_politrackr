@@ -13,7 +13,7 @@
 }
 
 .sub_color1 {
-	color: #ffffff;
+	color: #efefef;
 	background-color: #C8D6BF;
 	border-color: #C8D6BF;
 }
@@ -42,4 +42,13 @@
 
 .lose {
 	color: #802A47;
+}
+
+.new_predict_controls {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.vertical_middle {
+	vertical-align: middle;
 }
